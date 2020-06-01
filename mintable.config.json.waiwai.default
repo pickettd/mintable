@@ -1,0 +1,36 @@
+{
+  "HOST": "localhost",
+  "PORT": 3000,
+  "BALANCE_COLUMNS": [
+    "name",
+    "official_name",
+    "type",
+    "balances.available",
+    "balances.current",
+    "balances.limit"
+  ],
+  "TRANSACTION_COLUMNS": [
+    "account",
+    "date",
+    "amount",
+    "name",
+    "category.0",
+    "category.1"
+  ],
+  "REFERENCE_COLUMNS": [
+    "hca main category",
+    "hca sub category",
+    "emoji (feeling)",
+    "notes"
+  ],
+  "ACCOUNT_PROVIDER": "plaid",
+  "PLAID_ENVIRONMENT": "development",
+  "CATEGORY_OVERRIDES": [],
+  "SHEET_PROVIDER": "sheets",
+  "SHEETS_REDIRECT_URI": "http://localhost:3000/google-sheets-oauth2callback",
+  "TEMPLATE_SHEET": {
+    "SHEET_ID": "1MBs5obamXNOHsfGUYy5qscg3jUXGn6QvfvsgVVuzKq4",
+    "SHEET_TITLE": "test-template"
+  },
+  "CREATE_BALANCES_SHEET": true
+}
