@@ -146,15 +146,21 @@ const fetchAllCleanTransactions = async (startDate, endDate, pageSize = 250, off
   // Join in account details to transactions
   transactions = _.map(transactions, transaction => {
     const account = accounts[transaction.account_id]
+    let accountOfficialName = '';
+    let accountName = '';
+    if (account) {
+      accountOfficialName = account.official_name;
+      accountName = account.name;
+    }
     return {
       ..._.omit(transaction, ['accountNickname']),
       account_details: {
         ...account,
-        official_name: account.official_name,
-        name: account.name,
+        official_name: accountOfficialName,
+        name: accountName,
         nickname: transaction.accountNickname
       },
-      account: account.official_name || account.name || transaction.accountNickname
+      account: accountOfficialName || accountName || transaction.accountNickname
     }
   })
 
